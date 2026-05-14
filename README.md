@@ -1,69 +1,47 @@
 # Starship Watch 🚀
 
-发射追踪网页，纯静态前端，零后端零数据库。
+Real-time Starship / SpaceX launch tracker.
 
-## 功能
+**Live:** [starship-watch.vercel.app](https://starship-watch.vercel.app)
 
-- 下次发射倒计时（毫秒级精度）
-- 发射状态 / 概率 / 发射台信息
-- 近期10次发射计划列表
-- 外链跳转：NextSpaceflight、SpaceFlightNow、SpaceX YouTube
-- 数据双源：Launch Library 2（主）+ SpaceX Data API（备用）
-- 每60秒自动刷新
+## Features
 
-## 数据来源
+- ⏱️ Next launch countdown (real-time)
+- 📊 Launch status & probability
+- 📅 Upcoming launches list (10 upcoming)
+- 🔗 Quick links to external resources
+- 🌐 Bilingual: English & Chinese
+- 📱 Mobile responsive
 
-| API | 用途 | 限制 |
-|-----|------|------|
-| [Launch Library 2](https://ll.thespacedevs.com/2.3.0/) | 主数据源，所有发射 | 15 req/小时（免费） |
-| [SpaceX Data API](https://api.spacexdata.com/v5/) | SpaceX 专属备用 | 无限制 |
+## Data Sources
 
-## 部署到 Vercel（推荐）
+- [Launch Library 2](https://ll.thespacedevs.com/) — All launches
+- [SpaceX Data API](https://api.spacexdata.com/) — Fallback source
 
-### 方法一：GitHub 自动部署
+## Deploy
 
-1. 把这个文件夹推到 GitHub：
-   ```bash
-   git init
-   git add .
-   git commit -m "init: starship tracker"
-   git remote add origin https://github.com/你的用户名/starship-tracker.git
-   git push -u origin main
-   ```
+### Quick start (GitHub + Vercel)
 
-2. 登录 [vercel.com](https://vercel.com)，点击 **New Project**
+1. Fork or clone this repo
+2. Push to GitHub
+3. Sign up at [vercel.com](https://vercel.com)
+4. Import this repo → Deploy
+5. Get a free `xxx.vercel.app` domain instantly
 
-3. 导入你的 GitHub 仓库，Framework 选 **Other**，直接点 Deploy
+### Custom domain
 
-4. 部署完成后得到 `xxx.vercel.app` 地址
+After deployment, add your own domain in Vercel project settings → Domains.
 
-### 方法二：Vercel CLI 一键部署
+## Local preview
 
 ```bash
-npm i -g vercel
-vercel --prod
-```
-
-## 自定义域名（可选，先挂起）
-
-在 Vercel 项目设置 → Domains，添加你的域名后按提示配置 DNS 即可。
-
-## 本地预览
-
-```bash
-# 任意静态服务器均可
 npx serve .
-# 或
-python3 -m http.server 3000
+# or
+python3 -m http.server 8000
 ```
 
-## 文件结构
+Open http://localhost:8000
 
-```
-starship-tracker/
-├── index.html    # 主页面
-├── style.css     # 样式（深空工业风）
-├── app.js        # 数据抓取 + 倒计时逻辑
-├── vercel.json   # Vercel 部署配置
-└── README.md
-```
+---
+
+Made with ❤️ for space enthusiasts.
