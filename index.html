@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starship Watch — Launch Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="starfield" id="starfield"></div>
+
+<div class="lang-banner lang-banner-en">
+  <span class="lang-banner-label">Viewing English version</span>
+  <a href="zh.html" class="lang-switch-btn">
+    <span>🌐</span>
+    切换到中文
+    <span class="lang-switch-arrow">→</span>
+  </a>
+</div>
+
+<header>
+  <div class="logo">
+    <span class="logo-mark">▲</span>
+    <span class="logo-text">STARSHIP<span class="logo-sub">WATCH</span></span>
+  </div>
+  <div class="header-status">
+    <span class="pulse-dot" id="statusDot"></span>
+    <span id="statusText">Connecting...</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-label">Next Launch</div>
+    <h1 class="mission-name" id="missionName">—</h1>
+    <div class="mission-meta">
+      <span id="rocketName">—</span>
+      <span class="sep">·</span>
+      <span id="padName">—</span>
+    </div>
+    <div class="countdown" id="countdown">
+      <div class="cd-block"><span class="cd-num" id="cd-d">--</span><span class="cd-label">days</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd-h">--</span><span class="cd-label">hrs</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd-m">--</span><span class="cd-label">min</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd-s">--</span><span class="cd-label">sec</span></div>
+    </div>
+    <div class="launch-time-row">
+      <span class="launch-time-label">NET</span>
+      <span id="launchTimeLocal">—</span>
+      <span class="launch-time-label" style="margin-left:1rem">UTC</span>
+      <span id="launchTimeUTC">—</span>
+    </div>
+    <div class="status-badge-row">
+      <span class="status-badge" id="statusBadge">—</span>
+      <span class="prob-badge" id="probBadge"></span>
+    </div>
+    <div class="hero-links">
+      <a id="linkNSF" href="https://nextspaceflight.com" target="_blank" class="ext-btn">NextSpaceflight ↗</a>
+      <a id="linkSFN" href="https://spaceflightnow.com" target="_blank" class="ext-btn">SpaceFlightNow ↗</a>
+      <a id="linkYT"  href="https://www.youtube.com/@SpaceX" target="_blank" class="ext-btn live-btn">▶ SpaceX Live ↗</a>
+    </div>
+  </section>
+
+  <section class="info-grid">
+    <div class="info-card">
+      <div class="info-card-title">Mission Brief</div>
+      <div class="info-card-body" id="missionDesc">Loading...</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">Launch Pad</div>
+      <div class="info-card-body" id="padInfo">—</div>
+      <div class="info-card-title" style="margin-top:1.2rem">Vehicle</div>
+      <div class="info-card-body" id="rocketInfo">—</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">Quick Links</div>
+      <div class="links-list">
+        <a href="https://nextspaceflight.com/launches" target="_blank" class="link-item">📋 All Launches</a>
+        <a href="https://www.spacex.com/launches" target="_blank" class="link-item">🚀 SpaceX Official</a>
+        <a href="https://en.wikipedia.org/wiki/Starship_(rocket)" target="_blank" class="link-item">📖 Starship on Wikipedia</a>
+        <a href="https://spaceflightnow.com/launch-schedule/" target="_blank" class="link-item">🗓 Launch Schedule</a>
+        <a href="https://www.nasaspaceflight.com" target="_blank" class="link-item">🛰 NASASpaceflight</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="upcoming">
+    <div class="section-header">
+      <h2>Upcoming Launches</h2>
+      <span class="section-sub">Data from Launch Library 2</span>
+    </div>
+    <div id="upcomingList" class="launch-list">
+      <div class="loading-row">Loading...</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>Data: <a href="https://ll.thespacedevs.com" target="_blank">Launch Library 2</a> · <a href="https://api.spacexdata.com" target="_blank">SpaceX Data API</a></span>
+  <span id="lastUpdated"></span>
+</footer>
+
+<script>
+window.LOCALE = {
+  connecting: 'Connecting...', updated: 'Updated', noData: 'No data',
+  loading: 'Loading...', fallback: 'Using fallback source', fetchFail: 'Fetch failed, retrying soon',
+  noDesc: 'No mission description available.', fallbackDesc: 'No description (SpaceX Data API)',
+  dateLocale: 'en-US', timeLabels: ['days','hrs','min','sec'],
+};
+</script>
+<script src="app.js"></script>
+</body>
+</html>
